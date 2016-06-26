@@ -4,11 +4,11 @@
         <meta charset='utf-8'>
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
 		
-        <title>Meteor Crisis</title>
-		
 		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+		
+        <title>Meteor Crisis</title>
 		
         <script src="lib/phaser.js" type="text/javascript"></script>
         <script src="js/Preloader.js" type="text/javascript"></script>
@@ -16,10 +16,13 @@
         <script src="js/Game.js" type="text/javascript"></script>
     </head>
     <body>
+	<header>
 	<div class="container">
 	<h1>Meteor Crisis</h1>
 	</div>
+	</header>
 	<div class="container">
+	<section id="main_content">
         <script type="text/javascript">
         var game = new Phaser.Game(800, 600, Phaser.AUTO, '');
 
@@ -31,7 +34,7 @@
         game.state.start('Preloader');
 
         </script>
-		
+	</section>
 	</div>
     </body>
 </html>
