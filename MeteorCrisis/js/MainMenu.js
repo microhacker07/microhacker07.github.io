@@ -2,7 +2,7 @@ MeteorCrisis.StateMainMenu = function (game) {
 	
 	//var menuBackground;
 	var background;
-	var filter;
+	//var filter;
 	var logo
 	var button_play;
 	var text_play;
@@ -16,18 +16,8 @@ MeteorCrisis.StateMainMenu = function (game) {
 MeteorCrisis.StateMainMenu.prototype = {
 	
 	create: function() {
-	
-		////menuBackground = this.add.sprite(0, 0, 'menuBackground');
-		background = this.add.sprite(0, 0);
-		background.width = 800;
-		background.height = 600;
-
-		filter = this.add.filter('Plasma', 800, 600);
-		filter.size = 0.1;
-		filter.redShift = 0;
-		filter.greenShift = 0;
-		filter.blueShift = 0.6;
-		background.filters = [filter];
+		
+		background = this.game.add.tileSprite(0, 0, this.game.world.width, this.game.world.height, 'hexagonBackground');
 		
 		logo = this.add.sprite(this.world.centerX - 223, 75, 'logo');
 	
@@ -59,14 +49,14 @@ MeteorCrisis.StateMainMenu.prototype = {
 	},
 	
 	update: function() {
-
-	filter.update();
+	background.tilePosition.x -= 1;
+	background.tilePosition.y += 0.1;
 	}
+	
 };
 
 MeteorCrisis.StateHelpMenu = function (game) {
 	
-	//var menuBackground;
 	var background;
 	var filter;
 	var logo;
@@ -78,19 +68,7 @@ MeteorCrisis.StateHelpMenu = function (game) {
 MeteorCrisis.StateHelpMenu.prototype = {
 	
 	create: function() {
-	
-		//menuBackground = this.add.sprite(0, 0, 'menuBackground');
-		background = game.add.sprite(0, 0);
-		background.width = 800;
-		background.height = 600;
 
-		filter = game.add.filter('Plasma', 800, 600);
-		filter.size = 0.1;
-		filter.redShift = 0;
-		filter.greenShift = 0;
-		filter.blueShift = 0.1;
-		background.filters = [filter];
-		
 		logo = this.add.sprite(this.world.centerX - 223, 75, 'logo');
 		
 		button_back = this.add.button(this.world.centerX - 80, 495, 'button', this.buttonPressedBack, this, 1, 0, 2);
@@ -110,11 +88,12 @@ MeteorCrisis.StateHelpMenu.prototype = {
 		//Start the next state
 		this.state.start('MainMenu');
 	},
-	
+	/*
 	update: function() {
 
 	filter.update();
 	}
+	*/
 };
 
 MeteorCrisis.StateControlMenu = function (game) {
